@@ -1,9 +1,8 @@
 🎶 Hind Ke Sitara - A Full-Stack Music Web Application
 
-Hind Ke Sitara is a modern, responsive music player web app inspired by platforms like Spotify. It allows users to browse, stream, and interact with songs across albums. The app also includes a secure authentication system (Node.js + MongoDB) and premium features like song downloading for registered users.
+Hind Ke Sitara is a modern, responsive music player web app inspired by platforms like Spotify. It allows users to browse, stream, and interact with songs across albums. The app also features a secure authentication system (Node.js + MongoDB) and premium features, including song downloading, for registered users.
 
 
-(Replace the above URL with a link to your screenshot, e.g., from Imgur.)
 
 ✨ Features
 
@@ -75,7 +74,7 @@ VS Code with Live Server extension (recommended)
 
 🔧 Backend Setup
 # Clone repository
-git clone https://github.com/your-username/Hind-Ke-Sitara-Music-App.git
+git clone https://github.com/Manas22-creator/Hind-ke-Sitara
 cd Hind-Ke-Sitara-Music-App/backend
 
 # Install dependencies
