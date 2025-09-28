@@ -1,0 +1,564 @@
+/* Import a nice font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Basic Reset and Global Styles */
+:root {
+    --primary-color: #f5d0c1;
+    --secondary-color: #ee8a63;
+    --text-color: rgb(0, 0, 0);
+    --footer-color: rgba(0, 0, 0, 0.582);
+    --bg-color: #f8a685;
+    --pl--color: rgba(236, 162, 23, 0.979);
+    --pg-color: #ee8a63;
+    --button-hover: #df541e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    /* A dark background for the whole page */
+    color: #000;
+}
+
+/* Main Container Layout using Flexbox */
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: var(--primary-color);
+    /* Main light peach background */
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Left Panel (Sidebar) --- */
+.left {
+    width: 25vw;
+    /* Takes 25% of the viewport width */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.home,
+.library {
+    background-color: var(--secondary-color);
+    /* Darker peach for containers */
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.logo,
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+.home ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.home ul li img {
+    width: 25px;
+}
+
+/* Library Section Specifics */
+.library {
+    flex-grow: 1;
+    /* Allows this section to fill available space */
+    position: relative;
+    /* For positioning the footer */
+    overflow: hidden;
+}
+
+.song-list {
+    height: 70%;
+    /* Adjust as needed */
+    overflow-y: auto;
+    /* Makes only the song list scrollable */
+}
+
+.song-list ul {
+    list-style: none;
+}
+
+.song-list ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid #c59d81;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.song-list ul li:hover {
+    background-color: #f6c9a9d3;
+}
+
+.song-list .play-now {
+    margin-left: auto;
+    /* Pushes the "Play Now" to the right */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Footer in the Sidebar */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer a {
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* --- Right Panel (Main Content) --- */
+.right {
+    width: 75vw;
+    /* Takes 75% of the viewport width */
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    position: relative;
+    overflow-y: auto;
+    /* Allows content to scroll */
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: var(--bg-color);
+    /* Same as right panel background */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.nav img {
+    cursor: pointer;
+    width: 20px;
+}
+
+.buttons .signup-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.buttons .login-btn {
+    background-color: #121212;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Playlists Section */
+.playlists {
+    padding: 16px 24px;
+}
+
+.playlists h2 {
+    margin-bottom: 16px;
+}
+
+.card-container {
+    margin: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.card {
+    width: 180px;
+    background-color: var(--bg-color);
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card:hover {
+    background-color: var(--button-hover);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.card h3 {
+    margin-bottom: 4px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* --- Player Bar --- */
+.playbar {
+    position: fixed;
+    bottom: 30px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 4px 12px;
+    width: 70vw;
+    min-height: 80px;
+
+}
+
+.above-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.song-info {
+    width: 250px;
+}
+
+.song-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.song-buttons img {
+    cursor: pointer;
+    width: 40px;
+}
+
+/* Sizing for the smaller shuffle/loop/mute buttons */
+.song-buttons #shuffle,
+.time-vol #mute {
+    width: 25px;
+    height: 25px;
+}
+
+.time-vol {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.volume .range input {
+    cursor: pointer;
+}
+
+.seekbar {
+    height: 3px;
+    width: 95%;
+    background: var(--text-color);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #121212;
+    position: relative;
+    bottom: 5px;
+    left: 0%;
+    /* JavaScript will update this */
+    transition: left 0.1s linear;
+}
+
+/* --- Mobile Menu Styles --- */
+.hamburger,
+.close-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger img,
+.close-menu img {
+    width: 28px;
+}
+
+
+/* --- Responsive Design for smaller screens --- */
+@media (max-width: 1200px) {
+    .left {
+        position: fixed;
+        left: -100%;
+        /* Start off-screen */
+        top: 0;
+        width: 85vw;
+        height: 100vh;
+        background-color: var(--primary-color);
+        padding: 20px;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .left.open {
+        left: 0;
+        /* Slide in */
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .playbar {
+        width: 96%;
+        left: 2%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+        /* Cards take full width */
+    }
+
+    .above-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        height: auto;
+    }
+
+    .playbar {
+        padding-bottom: 5px;
+        /* Add space for seekbar */
+    }
+
+    .song-info {
+        text-align: center;
+    }
+}
+
+/* --- Login/Signup Modal Styles --- */
+.hidden {
+    display: none !important;
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: var(--primary-color);
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: relative;
+    min-width: 300px;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal .close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal form input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #c59d81;
+}
+
+.modal form button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #121212;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Login/Signup Modal Styles --- */
+.hidden {
+    display: none !important;
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: var(--primary-color);
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: relative;
+    min-width: 300px;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal .close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal form input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #c59d81;
+}
+
+.modal form button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #121212;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+/* --- NEW: Styles for Download Song Feature --- */
+.play-now .download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.play-now .download-btn:hover {
+    opacity: 0.7;
+}
+
+/* .play-now .download-btn img {
+    width: 20px;
+    height: 20px;
+} */
+
+
+/* --- User controls alignment --- */
+#user-controls {
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- NEW: User controls alignment --- */
+#user-controls {
+    display: flex;
+    align-items: center;
+}
