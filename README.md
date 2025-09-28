@@ -74,7 +74,7 @@ VS Code with Live Server extension (recommended)
 
 🔧 Backend Setup
 # Clone repository
-git clone https://github.com/Manas22-creator/Hind-ke-Sitara
+git clone https://github.com/your-username/Hind-Ke-Sitara-Music-App.git
 cd Hind-Ke-Sitara-Music-App/backend
 
 # Install dependencies
