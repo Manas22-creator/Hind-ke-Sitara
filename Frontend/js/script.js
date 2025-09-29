@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSongIndex = 0;
     let isLooping = false;
 
+     // Backend API Base URL
+    const API_BASE_URL = "https://hind-ke-sitara-backend.onrender.com";
+
     // --- DOM Element References (unchanged) ---
     const playBtn = document.getElementById("play");
     const prevBtn = document.getElementById("previous");
@@ -187,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById("signup-password").value;
 
             try {
-                const response = await fetch('/api/auth/register', {
+                const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
@@ -209,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById("login-password").value;
 
             try {
-                const response = await fetch('/api/auth/login', {
+               const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
@@ -230,4 +233,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initializePlayer();
+
 });
