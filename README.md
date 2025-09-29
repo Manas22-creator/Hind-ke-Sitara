@@ -1,7 +1,7 @@
 🎶 Hind-ke-Sitara Music Web Application
 
 🌐 Live Demo
-[🔗 Visit the Live Website – Legal Justice](https://hindmusic.netlify.app/)
+[🔗 Visit the Live Website – Hind-Ke-Sitara](https://hindmusic.netlify.app/)
 
 A modern, responsive full-stack music web application inspired by platforms like Spotify. Built with HTML, CSS, JavaScript (frontend), and Node.js, Express, and MongoDB (backend), it demonstrates strong full-stack development skills, featuring a clean UI/UX, secure authentication, and music streaming capabilities.
 
