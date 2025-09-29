@@ -4,31 +4,31 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const cors = require('cors'); // ✅ Added CORS
 
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to parse JSON request bodies
-// app.use(express.json());
-// Middleware to serve static files (our frontend)
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// Middleware
-
+// --- Middleware ---
 app.use(express.json()); // To parse JSON bodies
 
-// --- Serve Frontend Files ---
-// This is the key change for the new structure.
-// It tells Express to serve static files (HTML, CSS, JS) from the 'frontend' directory.
-app.use(express.static(path.join(__dirname, '../frontend')));
+// ✅ Enable CORS
+app.use(cors({
+    origin: "*", // Allow all origins (good for development)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 
+// --- Serve Frontend Files ---
+// This tells Express to serve static files (HTML, CSS, JS) from the 'frontend' directory.
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // --- MongoDB Connection ---
 mongoose.connect(process.env.MONGO_URI).then(() => {
-    console.log("Successfully connected to MongoDB Atlas!");
+    console.log("✅ Successfully connected to MongoDB Atlas!");
 }).catch(err => {
-    console.error("Connection error", err);
+    console.error("❌ Connection error", err);
     process.exit();
 });
 
@@ -105,5 +105,5 @@ app.post('/api/auth/login', async (req, res) => {
 
 // --- Start the server ---
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
