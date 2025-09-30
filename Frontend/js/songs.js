@@ -66,6 +66,10 @@ const albums = {
             {
                 name: "Tension",
                 filePath: "assets/music/Diljit/Tension.mp3"
+            },
+            {
+                name: "IshqDiBaajiyaan",
+                filePath: "assets/music/Diljit/IshqDiBaajiyaan.mp3"
             }
         ]
     },
@@ -172,6 +176,33 @@ const albums = {
             }
         ]
     },
+    "B-Praak hits": {
+        title: "B-Praak Hits",
+        description: "B-Praak's popular tracks",
+        cover: "assets/images/b_praak_cover.jpg",
+        songs: [
+            {
+                name: "Baarish ki Jaaye",
+                filePath: "assets/music/B-Praak/Baarish Ki Jaaye.mp3"
+            },
+            {
+                name: "Dil Tod Ke",
+                filePath: "assets/music/B-Praak/Dil Tod Ke.mp3"
+            },
+            {
+                name: "Channa Ve Sufna",
+                filePath: "assets/music/B-Praak/Channa Ve Sufna.mp3"
+            },
+            {
+                name: "Dolna Qismat",
+                filePath: "assets/music/B-Praak/Dholna Qismat.mp3"
+            },
+            {
+                name: "Filhall",
+                filePath: "assets/music/B-Praak/Filhall.mp3"
+            }
+        ]
+    },
     "Party_(Song)": {
         title: "Part (Song)",
         description: " Part (Song) collection of various artists and genres",
@@ -184,6 +215,14 @@ const albums = {
             {
                 name: "Bhare Bazaar - Namaste England",
                 filePath: "assets/music/Party_(Song)/Bhare Bazaar - Namaste England.mp3"
+            },
+            {
+                name: "Badri Ki Dulhania",
+                filePath: "assets/music/Party_(Song)/Badri Ki Dulhania.mp3"
+            },
+            {
+                name: "Ding Dang",
+                filePath: "assets/music/Party_(Song)/Ding Dang.mp3"
             },
             {
                 name: "Bolo Har Har Har",
